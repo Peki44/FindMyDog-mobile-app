@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "733494555982",
+    "firebase_url": "https://find-my-dog-7c135-default-rtdb.firebaseio.com",
+    "project_id": "find-my-dog-7c135",
+    "storage_bucket": "find-my-dog-7c135.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733494555982:android:fabc513c2e3d4f7ede5a1f",
+        "android_client_info": {
+          "package_name": "com.example.findmydog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733494555982-ofmggt3iigc51rllal6vaarojoo0h1q0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlrLe9YIWqcu7INUP0FcDSb1M1qfZJ5sE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733494555982-ofmggt3iigc51rllal6vaarojoo0h1q0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
