@@ -3,6 +3,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/add_button.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/bg_central.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/bg_input.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/button_background.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/button_shape.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/buttons_in_profile.xml" value="0.124" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/camera.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/delete_icon.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/detailsbackground.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/editinputformbackground.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/email.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/gallery.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/home.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/ic_button_background.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/ic_dog_house.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/ic_launcher_background.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/ic_logo.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/ic_rectangle_2.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/ic_rectangle_5.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/password.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/rectangle_2.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/shadow.xml" value="0.2055" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/shape.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/tabshape.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/drawable/whiteshape.xml" value="0.166" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/font/font.xml" value="0.23257802479692177" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/action_bar_layout.xml" value="0.17828131680205217" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_central.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_details.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_profile.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_qr_scan.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/activity_start.xml" value="0.25" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/dog_item.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/fragment_dogs.xml" value="0.18298418127404875" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog - new/app/src/main/res/menu/nav_menu.xml" value="0.18298418127404875" />
         <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog/app/src/main/res/drawable/buttons_in_profile.xml" value="0.2245" />
         <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog/app/src/main/res/drawable/delete_icon.xml" value="0.2115" />
         <entry key="..\:/Users/Matej/AndroidStudioProjects/FindMyDog/app/src/main/res/drawable/detailsbackground.xml" value="0.2115" />

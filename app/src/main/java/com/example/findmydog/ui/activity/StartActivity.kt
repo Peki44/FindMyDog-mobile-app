@@ -13,10 +13,10 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        window.setFlags(
+        /*window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+        )*/
 
         Handler().postDelayed({
             val splashIntent = Intent(this, LoginActivity::class.java)

@@ -23,10 +23,12 @@
             android:parentActivityName=".ui.activity.CentralActivity"/>
         <activity
             android:name=".ui.activity.SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.QrScanActivity"
             android:parentActivityName=".ui.activity.CentralActivity" />
@@ -37,7 +39,7 @@
         <activity
             android:name=".ui.activity.StartActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

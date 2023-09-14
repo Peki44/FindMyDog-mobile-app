@@ -1,9 +1,12 @@
 package com.example.findmydog.ui.activity
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -14,13 +17,23 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class CentralActivity : AppCompatActivity() {
+
+
+    private lateinit var scanCode: TextView
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_central)
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.action_bar_layout)
+        /*supportActionBar?.elevation = 0f*/
         setUpTabs()
+        scanCode=findViewById(R.id.scanCode)
 
+        scanCode.setOnClickListener {
+            val intent= Intent(this, QrScanActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setUpTabs() {
@@ -28,8 +41,8 @@ class CentralActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.tabLayout)
         viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(viewPager)
-        tabLayout.getTabAt(0)!!.setIcon(R.drawable.home)
-        tabLayout.getTabAt(1)!!.setIcon(R.drawable.dog)
+        tabLayout.getTabAt(0)!!.setIcon(R.drawable.ic_dog_house)
+        tabLayout.getTabAt(1)!!.setIcon(R.drawable.ic_dog)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -16,6 +16,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -73,4 +74,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
+    implementation 'com.caverock:androidsvg-aar:1.4'
+
+//    //noinspection GradleCompatible
+//    implementation 'com.android.support:appcompat-v7:23.2.0'
+
 }

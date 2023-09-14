@@ -26,10 +26,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(this@HomeFragment.requireContext(), ProfileActivity::class.java)
             startActivity(intent)
         }
-        bind.scanCode.setOnClickListener {
-            val intentScan = Intent(context, QrScanActivity::class.java)
+        /*bind.scanCode.setOnClickListener {
+            val intentScan = Intent(this@HomeFragment.requireContext(), QrScanActivity::class.java)
             startActivity(intentScan)
-        }
+        }*/
         return bind.root
     }
 

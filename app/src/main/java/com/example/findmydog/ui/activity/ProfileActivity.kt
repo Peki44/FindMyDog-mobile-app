@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +41,9 @@ import com.karumi.dexter.listener.single.PermissionListener
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
+import java.lang.System.currentTimeMillis
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
@@ -66,9 +70,9 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var imageDog: ImageView
     private lateinit var btnOpenCamera: Button
     private lateinit var btnOpenGallery: Button
-    var clicked = false
     var clickedImage=false
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -92,15 +96,15 @@ class ProfileActivity : AppCompatActivity() {
         etAddress=findViewById(R.id.address)
         etEmail=findViewById(R.id.email)
 
-        addBtn.setOnClickListener {
-            if(etDogsName.text.isEmpty() || etBreed.text.isEmpty() || etOwner.text.isEmpty() || etPhoneNumber.text.isEmpty()
-                || etAddress.text.isEmpty() || etEmail.text.isEmpty() || clickedImage.not()){
-                Toast.makeText(this,"Enter all information", Toast.LENGTH_SHORT).show()
-            }else {
-                clicked=true
-                uploadProfilePicture()
-            }
-        }
+       /* addBtn.setOnClickListener {*/
+       /*     if(etDogsName.text.isEmpty() || etBreed.text.isEmpty() || etOwner.text.isEmpty() || etPhoneNumber.text.isEmpty()*/
+       /*         || etAddress.text.isEmpty() || etEmail.text.isEmpty() || clickedImage.not()){*/
+       /*         Toast.makeText(this,"Enter all information", Toast.LENGTH_SHORT).show()*/
+       /*     }else {*/
+       /*         clicked=true*/
+       /*         uploadProfilePicture()*/
+       /*     }*/
+       /* }*/
 
         btnOpenCamera.setOnClickListener {
             cameraCheckPermission()
@@ -112,46 +116,24 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         imageQrCode = findViewById(R.id.qrcode)
-        btnGenerateQrCode = findViewById(R.id.generatebtn)
+        /*btnGenerateQrCode = findViewById(R.id.generatebtn)*/
 
 
-        val itemList: ArrayList<String> = arrayListOf()
-        btnGenerateQrCode.setOnClickListener {
-            if(clicked){
-                val data1=etDogsName.text.toString().trim()
-                val data2=etBreed.text.toString().trim()
-                val data3=etOwner.text.toString().trim()
-                val data4=etPhoneNumber.text.toString().trim()
-                val data5=etEmail.text.toString().trim()
-                val data6=etAddress.text.toString().trim()
-                val data7=imageString
-                val writer = QRCodeWriter()
-                try {
-                    itemList.add(data1)
-                    itemList.add(data2)
-                    itemList.add(data3)
-                    itemList.add(data4)
-                    itemList.add(data5)
-                    itemList.add(data6)
-                    itemList.add(data7)
-                    val bitMatrix = writer.encode(itemList.toString(),BarcodeFormat.QR_CODE,512,512)
-                    val width = bitMatrix.width
-                    val height = bitMatrix.height
-                    val bmp=Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
-                    for(x in 0 until width){
-                        for(y in 0 until height){
-                            bmp.setPixel(x,y,if(bitMatrix[x,y]) Color.BLACK else Color.WHITE)
-                        }
-                    }
-                    imageQrCode.setImageBitmap(bmp)
-                    qrCodeUri=getImageUri(bmp)
-                    uploadQrCode()
-                }catch (e:WriterException){
-                    e.printStackTrace()
+        /*val itemList: ArrayList<String> = arrayListOf()*/
+        addBtn.setOnClickListener {
+            /*if(clicked){*/
+                if(etDogsName.text.isEmpty() || etBreed.text.isEmpty() || etOwner.text.isEmpty() || etPhoneNumber.text.isEmpty()
+                    || etAddress.text.isEmpty() || etEmail.text.isEmpty() || clickedImage.not()){
+                    Toast.makeText(this,"Enter all information", Toast.LENGTH_SHORT).show()
+                }else {
+                    /*clicked=true*/
+                    uploadProfilePicture()
+
                 }
-            }else{
+
+            /*}else{
                 Toast.makeText(this,"Please add dog first", Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
     }
     fun getImageUri(inImage: Bitmap): Uri {
@@ -165,10 +147,12 @@ class ProfileActivity : AppCompatActivity() {
         )
         return Uri.parse(path)
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     fun uploadQrCode(){
-        val filename=UUID.randomUUID().toString()
+        val current = LocalDateTime.now()
+        /*val filename=UUID.randomUUID().toString()*/
         val uid=firebaseAuth.currentUser?.uid
-        storageReference=FirebaseStorage.getInstance().getReference("Users" +firebaseAuth.currentUser?.uid+ filename)
+        storageReference=FirebaseStorage.getInstance().getReference("Users" +firebaseAuth.currentUser?.uid+ current + "QRcode")
         if (uid != null) {
             storageReference.child(uid).putFile(qrCodeUri).addOnSuccessListener {
                 storageReference.child(uid).downloadUrl.addOnSuccessListener {
@@ -193,10 +177,12 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     lateinit var imageString:String
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun uploadProfilePicture() {
-        val filename=UUID.randomUUID().toString()
+        val current = LocalDateTime.now()
+        /*val filename=UUID.randomUUID().toString()*/
         val uid=firebaseAuth.currentUser?.uid
-        storageReference=FirebaseStorage.getInstance().getReference("Users" +firebaseAuth.currentUser?.uid+ filename)
+        storageReference=FirebaseStorage.getInstance().getReference("Users" +firebaseAuth.currentUser?.uid+ current + "Image")
         if (uid != null) {
             storageReference.child(uid).putFile(imageUri).addOnSuccessListener {
                 storageReference.child(uid).downloadUrl.addOnSuccessListener {
@@ -211,6 +197,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var emptyReference: DatabaseReference
     lateinit var dogKey:String
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun saveProfileInDatabase(profileImage:String) {
         val dogName=etDogsName.text.toString()
         val breed=etBreed.text.toString()
@@ -220,18 +207,59 @@ class ProfileActivity : AppCompatActivity() {
         val email=etEmail.text.toString()
         val uid=firebaseAuth.currentUser?.uid
 
-        val dog= Dog(profileImage,dogName,breed,owner,phoneNumber,address,email)
+        val dog= Dog(profileImage,dogName,breed,owner,phoneNumber,email,address)
             if (uid != null) {
-                emptyReference=databaseReference.child(uid).child("Dogs").push()
+                emptyReference=databaseReference.child(uid).child("Dogs").child(System.currentTimeMillis().toString())
                 dogKey= emptyReference.key.toString()
                 emptyReference.setValue(dog).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        makeQrCode(dogKey)
                         Toast.makeText(this, "Dog successfully added", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this, "Failed to add dog", Toast.LENGTH_SHORT).show()
                     }
                 }.addOnFailureListener {  }
             }
+    }
+    val itemList: ArrayList<String> = arrayListOf()
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun makeQrCode(dogKey:String){
+        val data1=etDogsName.text.toString().trim()
+        val data2=etBreed.text.toString().trim()
+        val data3=etOwner.text.toString().trim()
+        val data4=etPhoneNumber.text.toString().trim()
+        val data5=etEmail.text.toString().trim()
+        val data6=etAddress.text.toString().trim()
+        val data7=imageString
+        val writer = QRCodeWriter()
+        try {
+
+            itemList.add(data1)
+            itemList.add(data2)
+            itemList.add(data3)
+            itemList.add(data4)
+            itemList.add(data5)
+            itemList.add(data6)
+            itemList.add(data7)
+            val uid=firebaseAuth.currentUser?.uid
+
+            val link="https://find-my-dog-lyuv.vercel.app/information/" + uid + "/" + dogKey
+
+            val bitMatrix = writer.encode(link,BarcodeFormat.QR_CODE,512,512)
+            val width = bitMatrix.width
+            val height = bitMatrix.height
+            val bmp=Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565)
+            for(x in 0 until width){
+                for(y in 0 until height){
+                    bmp.setPixel(x,y,if(bitMatrix[x,y]) Color.BLACK else Color.WHITE)
+                }
+            }
+            imageQrCode.setImageBitmap(bmp)
+            qrCodeUri=getImageUri(bmp)
+            uploadQrCode()
+        }catch (e:WriterException){
+            e.printStackTrace()
+        }
     }
 
     private fun galleryCheckPermission() {

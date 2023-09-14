@@ -28,9 +28,9 @@ class DogRepository {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     itemList.clear()
                     listKey.clear()
-                    for (bb in snapshot.child(uid).child("Dogs").children) {
-                        listKey.add(bb.key!!)
-                        val emptyData = bb.getValue(Dog::class.java)
+                    for (oneDog in snapshot.child(uid).child("Dogs").children) {
+                        listKey.add(oneDog.key!!)
+                        val emptyData = oneDog.getValue(Dog::class.java)
                         if (emptyData != null) {
                             itemList.add(emptyData)
                         }
